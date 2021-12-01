@@ -1,0 +1,394 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  padding: 32px;
+  margin: 0;
+  background-color: #e5e5e5;
+  font-family: system-ui, sans-serif;
+  max-width: 960px;
+  margin: 0 auto;
+  color: #444;
+}
+
+a {
+  color: #444;
+  text-decoration: none;
+}
+a:focus {
+  outline: 4px solid rgba(0, 0, 0, 0.15);
+  outline-offset: -4px;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(16px, 5vw, 32px);
+  padding: clamp(16px, 5vw, 32px);
+  margin-bottom: clamp(16px, 5vw, 32px);
+  text-align: center;
+}
+
+.anim-background {
+  padding: 16px;
+  color: #fff;
+}
+.anim-background-0 {
+  background-image: linear-gradient(to bottom, #1c7adc, #0b2f54);
+  background-size: 100% 200%;
+  background-position: 0 0;
+}
+.anim-background-0:hover, .anim-background-0:focus {
+  background-position: 0 100%;
+  transition: all 0.3s linear;
+}
+.anim-background-1 {
+  position: relative;
+  z-index: 1;
+}
+.anim-background-1::before {
+  z-index: -2;
+  background-image: linear-gradient(to bottom, #1c7adc, #135498);
+}
+.anim-background-1::after {
+  z-index: -1;
+  background-image: linear-gradient(to bottom, #135498, #0b2f54);
+  transform: translateZ(0);
+  opacity: 0;
+  transition: opacity 0.3s linear;
+}
+.anim-background-1:hover::after {
+  opacity: 1;
+}
+.anim-background-1:focus::after {
+  opacity: 1;
+}
+
+.anim-shadow {
+  position: relative;
+  padding: 16px;
+  /* background-color: #fff; */
+  font-size: 22px;
+  font-weight: bold;
+}
+.anim-shadow-0 {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transform: translate3d(0, 0, 0);
+  transition: all 0.3s ease-in-out;
+}
+.anim-shadow-0:hover, .anim-shadow-0:focus {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  transform: translate3d(0, -5px, 0);
+}
+.anim-shadow-1 {
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.3s ease-in-out;
+}
+.anim-shadow-1::after {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  opacity: 0.6;
+  transition: opacity 0.3s linear;
+}
+.anim-shadow-1:hover, .anim-shadow-1:focus {
+  transform: translate3d(0, -5px, 0);
+}
+.anim-shadow-1:hover::after, .anim-shadow-1:focus::after {
+  opacity: 1;
+}
+
+.anim-position {
+  overflow: hidden;
+  position: relative;
+  padding: 96px 16px;
+  color: #fff;
+  background-color: #1c7adc;
+}
+.anim-position span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: 8px;
+  background-color: rgb(0 0 0 / 70%);
+}
+.anim-position-0 span {
+  bottom: 0;
+  transform: translate3d(0, 0, 0);
+  transition: all 0.3s ease-in-out;
+}
+.anim-position-0:hover span, .anim-position-0:focus span {
+  bottom: 100%;
+  transform: translate3d(0, 100%, 0);
+}
+.anim-position-1 div {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform: translate3d(0, 100%, 0);
+  transition: transform 0.3s ease-in-out;
+}
+.anim-position-1 span {
+  top: 0;
+  transform: translate3d(0, -100%, 0);
+  transition: transform 0.3s ease-in-out;
+}
+.anim-position-1:hover div, .anim-position-1:focus div {
+  transform: translate3d(0, 0, 0);
+}
+.anim-position-1:hover span, .anim-position-1:focus span {
+  transform: translate3d(0, 0, 0);
+}
+
+.has-pseudo-absolute::after, .has-pseudo-absolute::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+html .co-red {
+  color: #ff0b0b;
+}
+html .co-green {
+  color: #05993e;
+}
+html .co-blue {
+  color: #1c7adc;
+}
+html .co-orange {
+  color: #f7a208;
+}
+html .co-white {
+  color: #fff;
+}
+html .co-gray-10 {
+  color: #111;
+}
+html .co-gray-20 {
+  color: #333;
+}
+html .co-gray-30 {
+  color: #555;
+}
+html .bg-red {
+  background-color: #ff0b0b;
+}
+html .bg-green {
+  background-color: #05993e;
+}
+html .bg-blue {
+  background-color: #1c7adc;
+}
+html .bg-orange {
+  background-color: #f7a208;
+}
+html .bg-white {
+  background-color: #fff;
+}
+html .mb {
+  margin-bottom: 32px;
+}
+.bgx{
+  background-color: #ff0b0b;
+  background-image: url("https://resultadosgenerales2021.cne.hn/fotos/7.7.jpg");
+  background-repeat:no-repeat;
+background-position: center center;
+}
+.bgp{
+  background-color:blue;
+  background-image: url("https://resultadosgenerales2021.cne.hn/fotos/2.15.jpg");
+  background-repeat:no-repeat;
+background-position: center center;
+}
+.ganando{
+  background-color: #56c259;
+  color: white;
+}
+.perdiendo{
+  background-color: #c25656;
+  color: white;
+}
+.txtcenter{
+  text-align: center;
+  align-items: center;
+}
+.anim-shadow-0-0{
+  margin: auto 0;
+  
+}
+.datos{
+
+  height: 250px!important;
+  overflow:auto;
+}
+
+.dsa{
+  width: 100%!important;
+  height: 25px;
+  background-color: #5555554f;
+  border-bottom: 1px solid white;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
+}
+.it{
+  width: 24%;
+  float: left;
+  text-align: center;
+}
+.brb{
+  border-right: 1px solid white;
+}
+.txtb{
+  font-weight: bold;
+}
+.bar {
+  float: left;
+  width: 15px;
+  height: 6px;
+  border-radius: 2px;
+  background-color: #4b9cdb;
+}
+.load-10{
+  position: absolute;
+    top: 20px;
+    margin-left: 15px;
+    font-weight: bold;
+    color: red;
+}
+.l-10 {
+  animation-delay: 1.56s;
+}
+.load-10 .bar {
+  animation: loadingJ 2s cubic-bezier(0.17, 0.37, 0.43, 0.67) infinite;
+}
+
+
+
+@keyframes loadingA {
+  0% {
+    height: 15px;
+  }
+  50% {
+    height: 35px;
+  }
+  100% {
+    height: 15px;
+  }
+}
+
+@keyframes loadingB {
+  0% {
+    width: 15px;
+  }
+  50% {
+    width: 35px;
+  }
+  100% {
+    width: 15px;
+  }
+}
+
+@keyframes loadingC {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, 15px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes loadingD {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loadingE {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loadingF {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes loadingG {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(70px, 0) rotate(360deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+@keyframes loadingH {
+  0% {
+    width: 15px;
+  }
+  50% {
+    width: 35px;
+    padding: 4px;
+  }
+  100% {
+    width: 15px;
+  }
+}
+
+@keyframes loadingI {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+
+@keyframes loadingJ {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(80px, 0);
+    background-color: #f5634a;
+    width: 25px;
+  }
+}
